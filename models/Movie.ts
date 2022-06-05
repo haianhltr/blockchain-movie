@@ -1,11 +1,17 @@
 
+import * as borsh from '@project-serum/borsh'
 export class Movie {
     title: string;
     rating: number;
     description: string;
 
 
-    
+    borshInstructionSchema = borsh.struct([
+		borsh.u8('variant'),
+		borsh.str('title'),
+		borsh.u8('rating'),
+		borsh.str('description'),
+	])
 
     constructor(title: string, rating: number, description: string) {
         this.title = title;
